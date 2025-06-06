@@ -26,7 +26,7 @@ function startPuzzle() {
 
     const x = (i % size) * 100;
     const y = Math.floor(i / size) * 100;
-    tile.style.backgroundImage = "url('./assets/vishali.jpg')";
+    tile.style.backgroundImage = "url('./assets/panda.jpg')";
     tile.style.backgroundSize = "300px 300px";
     tile.style.backgroundPosition = `-${x}px -${y}px`;
 
