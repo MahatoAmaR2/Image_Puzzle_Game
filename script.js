@@ -1,12 +1,16 @@
 const size = 3;
 const tileContainer = document.getElementById("tileContainer");
 const dropContainer = document.getElementById("dropContainer");
+const moveCountDisplay = document.getElementById("moveCount");
 let tiles = [];
+let moveCount = 0;
 
 function startPuzzle() {
   tileContainer.innerHTML = "";
   dropContainer.innerHTML = "";
   tiles = [];
+  moveCount = 0;
+  moveCountDisplay.textContent = moveCount;
 
   for (let i = 0; i < size * size; i++) {
     const tile = document.createElement("div");
@@ -44,6 +48,8 @@ function startPuzzle() {
 
       if (dropCell.children.length === 0) {
         dropCell.appendChild(draggedTile);
+        moveCount++;
+        moveCountDisplay.textContent = moveCount;
       }
     });
 

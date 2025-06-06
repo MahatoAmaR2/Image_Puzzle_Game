@@ -35,6 +35,20 @@ h1 {
   font-size: 16px;
   cursor: pointer;
 }
+.topButtons{
+  display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+.moves{
+  text-align: center;
+  background-color: aliceblue;
+  width: fit-content;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
 #tileContainer,
 #dropContainer {
   display: grid;

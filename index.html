@@ -8,7 +8,11 @@
   </head>
   <body>
     <h1>Dynamic image Puzzle Game</h1>
-    <button id="startButton" onclick="startPuzzle()">Start Puzzle</button>
+    <div class="topButtons">
+      <button id="startButton" onclick="startPuzzle()">Start Puzzle</button>
+    <p class="moves">Moves: <span id="moveCount">0</span></p>
+    </div>
+
     <div class="main">
       <div id="tileContainer"></div>
       <div id="dropContainer"></div>
