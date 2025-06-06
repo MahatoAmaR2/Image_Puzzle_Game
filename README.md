@@ -27,6 +27,4 @@ An interactive puzzle game where an image is split into tiles and shuffled. The 
 - High score tracking via localStorage.
 - User image upload for personalized puzzles
 - Responsive design improvements.
-- Reset button to restart puzzle anytime
-- Win detection alert when puzzle is correctly solved
 - Best time tracking and history
