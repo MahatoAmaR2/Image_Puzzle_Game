@@ -23,6 +23,7 @@ function startPuzzle() {
     const tile = document.createElement("div");
     tile.className = "tile";
     tile.id = "tile-" + i;
+    tile.dataset.index = i;
 
     const x = (i % size) * 100;
     const y = Math.floor(i / size) * 100;
@@ -56,13 +57,12 @@ function startPuzzle() {
       if (dropCell.children.length === 0) {
         dropCell.appendChild(draggedTile);
 
-        draggedTile.draggable = true;
-    draggedTile.addEventListener("dragstart", (e) => {
-      e.dataTransfer.setData("text/plain", draggedTile.id);
-    });
         moveCount++;
         moveCountDisplay.textContent = moveCount;
         
+        checkWin();
+
+
       }
     });
 
@@ -81,4 +81,32 @@ function updateTimer() {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
   timerDisplay.textContent = mins + ":" + secs;
+}
+
+
+function checkWin() {
+  const dropCells = document.querySelectorAll(".drop-tile");
+
+  for (let i = 0; i < dropCells.length; i++) {
+    const tile = dropCells[i].firstElementChild;
+    if (!tile || tile.dataset.index != i) {
+      return; 
+    }
+  }
+
+  clearInterval(timer); 
+  setTimeout(() => {
+    alert(" Congratulations! You solved the puzzle!");
+  }, 100);
+}
+
+function resetPuzzle(){
+  clearInterval(timer);
+  tileContainer.innerHTML = "";
+  dropContainer.innerHTML = "";
+  moveCount = 0;
+  seconds = 0;
+  moveCountDisplay.textContent = "0";
+  timerDisplay.textContent = "00:00";
+  tiles = [];
 }

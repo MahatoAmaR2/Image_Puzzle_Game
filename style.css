@@ -45,6 +45,12 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 }
+.resetButton{
+   padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 .moves{
   text-align: center;
   background-color: aliceblue;
