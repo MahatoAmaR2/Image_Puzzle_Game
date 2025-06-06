@@ -2,15 +2,22 @@ const size = 3;
 const tileContainer = document.getElementById("tileContainer");
 const dropContainer = document.getElementById("dropContainer");
 const moveCountDisplay = document.getElementById("moveCount");
+const timerDisplay = document.getElementById("timer");
 let tiles = [];
 let moveCount = 0;
+let seconds = 0;
 
 function startPuzzle() {
   tileContainer.innerHTML = "";
   dropContainer.innerHTML = "";
   tiles = [];
   moveCount = 0;
+  seconds = 0;
   moveCountDisplay.textContent = moveCount;
+  timerDisplay.textContent = "00:00";
+
+  if (timer) clearInterval(timer);
+  timer = setInterval(updateTimer, 1000);
 
   for (let i = 0; i < size * size; i++) {
     const tile = document.createElement("div");
@@ -48,8 +55,14 @@ function startPuzzle() {
 
       if (dropCell.children.length === 0) {
         dropCell.appendChild(draggedTile);
+
+        draggedTile.draggable = true;
+    draggedTile.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", draggedTile.id);
+    });
         moveCount++;
         moveCountDisplay.textContent = moveCount;
+        
       }
     });
 
@@ -61,4 +74,11 @@ function shuffleTiles() {
   tileContainer.innerHTML = "";
   tiles.sort(() => Math.random() - 0.5);
   tiles.forEach((tile) => tileContainer.appendChild(tile));
+}
+
+function updateTimer() {
+  seconds++;
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  timerDisplay.textContent = mins + ":" + secs;
 }
