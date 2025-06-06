@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Image Puzzle Game</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic 3x3 Drag & Drop Grid</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Har Har Mahadev</h1>
-    <script src="./script.js"></script>
+
+  <h1>Drag & Drop Puzzle Grid</h1>
+<button id="startButton" onclick="startPuzzle()">Start Puzzle</button>
+
+  <div id="tileContainer">
+
+  </div>
+  <button onclick="shuffleTiles()">Shuffle</button>
+  <div id="dropContainer"></div>
+
+  <script src="./script.js"></script>
 </body>
 </html>
